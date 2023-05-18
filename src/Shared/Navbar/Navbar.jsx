@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo1 from '../../images/logo/logo.jpg'
 import { Link } from "react-router-dom";
 import { FaUserAlt } from 'react-icons/fa';
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+
+    const{user} = useContext(AuthContext)
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -36,12 +39,12 @@ const Navbar = () => {
                 <Link>All Toys</Link>
               
               </li>
-              <li>
+              {user && <><li>
                 <Link>My Toys</Link>
               </li>
               <li>
                 <Link>Add a Toy</Link>
-              </li>
+              </li></>}
               <li>
                 <Link>Blogs</Link>
               </li>
@@ -63,12 +66,12 @@ const Navbar = () => {
                 <Link>All Toys</Link>
               
               </li>
-              <li>
+              {user && <><li>
                 <Link>My Toys</Link>
               </li>
               <li>
                 <Link>Add a Toy</Link>
-              </li>
+              </li></>}
               <li>
                 <Link>Blogs</Link>
               </li>
@@ -77,8 +80,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <p className="text-3xl pe-4">    <FaUserAlt></FaUserAlt></p>
-         <Link to='/login'>Login</Link>
+       { user ?<><button className="btn btn-primary">Logout</button>
+       <p className="text-3xl pe-4"><FaUserAlt></FaUserAlt></p></>
+        : <Link to='/login'>Login</Link>}
         </div>
       </div>
     </div>
