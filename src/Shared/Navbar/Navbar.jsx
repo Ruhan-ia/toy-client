@@ -1,6 +1,8 @@
 import React from "react";
 import logo1 from '../../images/logo/logo.jpg'
 import { Link } from "react-router-dom";
+import { FaUserAlt } from 'react-icons/fa';
+
 const Navbar = () => {
   return (
     <div>
@@ -31,31 +33,52 @@ const Navbar = () => {
                 <Link to='/'>Home</Link>
               </li>
               <li >
-
-               about
+                <Link>All Toys</Link>
+              
               </li>
               <li>
-                <a>Item 3</a>
+                <Link>My Toys</Link>
               </li>
+              <li>
+                <Link>Add a Toy</Link>
+              </li>
+              <li>
+                <Link>Blogs</Link>
+              </li>
+              
             </ul>
           </div>
-          <img className="w-[50px] rounded-md" src={logo1} alt="" />
+         <div className="flex items-center">
+         <img className="w-[50px] rounded-md" src={logo1} alt="" />
+         <h2 className="font-bold text-4xl text-emerald-600 p-3">Action Cars</h2>
+         </div>
+          
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-             <Link to='/'>Home</Link>
-            </li>
-            <li>
-                <Link></Link>
-            </li>
-            <li>
-             <Link></Link>
-            </li>
+          <li>
+                <Link to='/'>Home</Link>
+              </li>
+              <li >
+                <Link>All Toys</Link>
+              
+              </li>
+              <li>
+                <Link>My Toys</Link>
+              </li>
+              <li>
+                <Link>Add a Toy</Link>
+              </li>
+              <li>
+                <Link>Blogs</Link>
+              </li>
+            
+            
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+        <p className="text-3xl pe-4">    <FaUserAlt></FaUserAlt></p>
+          <a className="btn">Login</a>
         </div>
       </div>
     </div>
