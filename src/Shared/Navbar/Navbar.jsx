@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
         <p className="text-3xl pe-4">    <FaUserAlt></FaUserAlt></p>
-          <a className="btn">Login</a>
+         <Link to='/login'>Login</Link>
         </div>
       </div>
     </div>
