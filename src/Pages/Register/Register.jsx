@@ -1,5 +1,5 @@
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const Register = () => {
     
 
 
-    const{createUser} = useContext(AuthContext)
+    const{createUser, googleSignIn} = useContext(AuthContext)
     const handleSignUp =event =>{
         event.preventDefault()
         const form = event.target;
@@ -17,7 +17,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password)
-        createUser()
+        createUser(email, password)
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
@@ -25,6 +25,17 @@ const Register = () => {
         .catch(error =>{
             console.log(error.message)
         })
+    }
+
+    const handleGoogleLogIn = () =>{
+      googleSignIn()
+      .then(result =>{
+        const loggedUser = result.user;
+        console.log(loggedUser)
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
     }
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -85,6 +96,8 @@ const Register = () => {
               <button className="btn btn-primary">Register</button>
             </div>
             <p>Already have an account? Please<Link to='/login' className="font-bold text-blue-600">Login</Link></p>
+            <button onClick={handleGoogleLogIn} className="btn btn-dark">Sign With Google</button>
+
           </form>
         </div>
       </div>
