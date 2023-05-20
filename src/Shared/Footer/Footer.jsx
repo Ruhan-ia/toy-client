@@ -1,9 +1,15 @@
 import React from "react";
+import logo1 from '../../images/logo/logo.jpg'
+
 
 const Footer = () => {
   return (
     <div>
       <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+      <div className="flex ">
+         <img className="w-[50px] rounded-md" src={logo1} alt="" />
+         <h2 className="font-bold text-4xl text-emerald-600 p-3">Action Cars</h2>
+         </div>
         <div className="grid grid-flow-col gap-4">
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>

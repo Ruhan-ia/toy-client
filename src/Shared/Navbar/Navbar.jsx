@@ -51,7 +51,7 @@ const Navbar = () => {
                 <Link>My Toys</Link>
               </li>
               <li>
-                <Link>Add a Toy</Link>
+                <Link to='/addtoy'>Add a Toy</Link>
               </li></>}
               <li>
                 <Link>Blogs</Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
                 <Link>My Toys</Link>
               </li>
               <li>
-                <Link>Add a Toy</Link>
+                <Link to='/addtoy'>Add a Toy</Link>
               </li></>}
               <li>
                 <Link>Blogs</Link>
