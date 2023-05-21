@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
-import logo1 from '../../images/logo/logo.jpg'
+import logo1 from "../../images/logo/logo.jpg";
+import profile from "../../images/banner/profile.jpg";
 import { Link } from "react-router-dom";
-import { FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-    const{user, logOut} = useContext(AuthContext)
-
-    const handleLogOUt = () =>{
-      logOut()
+  const handleLogOUt = () => {
+    logOut()
       .then()
-      .catch(error =>{
-        console.log(error.message)
-      })
-    }
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -41,57 +41,71 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to='/'>Home</Link>
+                <Link to="/">Home</Link>
               </li>
-              <li >
+              <li>
                 <Link>All Toys</Link>
-              
               </li>
-              {user && <><li>
-                <Link>My Toys</Link>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <Link>My Toys</Link>
+                  </li>
+                  <li>
+                    <Link to="/addtoy">Add a Toy</Link>
+                  </li>
+                </>
+              )}
               <li>
-                <Link to='/addtoy'>Add a Toy</Link>
-              </li></>}
-              <li>
-                <Link>Blogs</Link>
+                <Link to="/blog">Blogs</Link>
               </li>
-              
             </ul>
           </div>
-         <div className="flex items-center">
-         <img className="w-[50px] rounded-md" src={logo1} alt="" />
-         <h2 className="font-bold text-4xl text-emerald-600 p-3">Action Cars</h2>
-         </div>
-          
+          <div className="flex items-center">
+            <img className="w-[50px] rounded-md" src={logo1} alt="" />
+            <h2 className="font-bold text-4xl text-emerald-600 p-3">
+              Action Cars
+            </h2>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-          <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li >
-                <Link>All Toys</Link>
-              
-              </li>
-              {user && <><li>
-                <Link>My Toys</Link>
-              </li>
-              <li>
-                <Link to='/addtoy'>Add a Toy</Link>
-              </li></>}
-              <li>
-                <Link>Blogs</Link>
-              </li>
-            
-            
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link>All Toys</Link>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <Link>My Toys</Link>
+                </li>
+                <li>
+                  <Link to="/addtoy">Add a Toy</Link>
+                </li>
+              </>
+            )}
+            <li>
+              <Link to="/blog">Blogs</Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-       { user ?<><p className="text-3xl pe-4"><FaUserAlt></FaUserAlt></p>
-       <button onClick={handleLogOUt} className="btn btn-primary">Logout</button>
-       </>
-        : <Link to='/login'>Login</Link>}
+          {user ? (
+            <>
+              <div className="avatar">
+                <div className="w-14 rounded-full me-5 hover:{user?.name}">
+                  <img className="hover:{user?.name}" src={profile} />
+                </div>
+              </div>
+              <button onClick={handleLogOUt} className="btn btn-primary">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </div>
       </div>
     </div>
