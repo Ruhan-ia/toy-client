@@ -21,7 +21,7 @@ const AddToy = () => {
   const onSubmit = (data) => {
     data.category = selectedOption;
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://toy-store-98bee.web.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +58,7 @@ const AddToy = () => {
           <input
             {...register("Seller name")}
             type="text"
-            defaultValue={user?.name}
+            defaultValue={user?.displayName}
             className="input input-bordered"
           />
         </div>
@@ -114,16 +114,13 @@ const AddToy = () => {
             className="input input-bordered"
           />
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Category</span>
-          </label>
-          <select {...register("category")}>
+      
+          <select {...register("subCategory")}>
             <option value="Sports">Sports</option>
             <option value="Classic">Classic</option>
             <option value="Trucks">Trucks</option>
           </select>
-        </div>
+        
         <div className="form-control">
           <label className="label">
             <span className="label-text">Category2</span>
@@ -137,7 +134,7 @@ const AddToy = () => {
         </div>
       </div>
       <div className="form-control mt-6">
-        <button className="btn btn-primary btn-block">Order Confirm</button>
+        <button className="btn btn-primary btn-block">Add Confirm</button>
       </div>
     </form>
   );

@@ -96,7 +96,7 @@ const Navbar = () => {
             <>
               <div className="avatar">
                 <div className="w-14 rounded-full me-5 hover:{user?.name}">
-                  <img className="hover:{user?.name}" src={profile} />
+                  <img className="hover:{user?.displayName}" src={user.photoURL} />
                 </div>
               </div>
               <button onClick={handleLogOUt} className="btn btn-primary">
