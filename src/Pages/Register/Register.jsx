@@ -2,10 +2,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import {  getAuth, updateProfile  } from "firebase/auth";
+import app from "../../Firebase/firebase.config";
+
+const auth = getAuth(app)
 
 
 const Register = () => {
     
+
+
 
 
     const{createUser, googleSignIn} = useContext(AuthContext)
@@ -20,12 +26,31 @@ const Register = () => {
         createUser(email, password)
         .then(result =>{
             const loggedUser = result.user;
+       
             console.log(loggedUser)
+            updateData  (result.user, name, photo)
+            
         })
         .catch(error =>{
             console.log(error.message)
         })
+        const updateData = (user, name, photo) =>{
+          updateProfile(user, {
+            displayName:name , photoURL:photo
+          })
+          .then(() =>{
+            console.log('heloo')
+          })
+          .catch(error =>{
+            console.log(error.message)
+          })
+        }
+    
+      
     }
+
+   
+  
 
     const handleGoogleLogIn = () =>{
       googleSignIn()
@@ -36,7 +61,13 @@ const Register = () => {
       .catch(error =>{
         console.log(error.message)
       })
+    
+  
     }
+
+   
+     
+    
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -60,7 +91,7 @@ const Register = () => {
                 <span className="label-text">Photo</span>
               </label>
               <input
-                type="text"
+                type="url"
                 placeholder="photo"
                 name="photo"
                 required
