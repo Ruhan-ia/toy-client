@@ -21,7 +21,7 @@ const [active, setActive] = useState('sports')
 
   return (
    <div>
-    <div className=" flex text-center gap-5">
+    <div className=" flex text-center justify-center gap-5">
       <div onClick={() =>handleTabClick("sports")}
       className={`${active == 'sports'? 'bg-red-500 text-white' : ""}`}
       >
