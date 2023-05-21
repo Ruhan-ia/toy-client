@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import logo1 from "../../images/logo/logo.jpg";
 import profile from "../../images/banner/profile.jpg";
 import { Link } from "react-router-dom";
-import { FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
@@ -49,7 +48,7 @@ const Navbar = () => {
               {user && (
                 <>
                   <li>
-                    <Link>My Toys</Link>
+                    <Link to='/myToys'>My Toys</Link>
                   </li>
                   <li>
                     <Link to="/addtoy">Add a Toy</Link>
@@ -79,7 +78,7 @@ const Navbar = () => {
             {user && (
               <>
                 <li>
-                  <Link>My Toys</Link>
+                  <Link  to='/myToys'>My Toys</Link>
                 </li>
                 <li>
                   <Link to="/addtoy">Add a Toy</Link>
@@ -96,7 +95,7 @@ const Navbar = () => {
             <>
               <div className="avatar">
                 <div className="w-14 rounded-full me-5 hover:{user?.name}">
-                  <img className="hover:{user?.displayName}" src={user.photoURL} />
+                  <img className="hover:{user?.displayName}" src={user?.photoURL} />
                 </div>
               </div>
               <button onClick={handleLogOUt} className="btn btn-primary">

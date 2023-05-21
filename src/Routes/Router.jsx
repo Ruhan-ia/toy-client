@@ -9,6 +9,7 @@ import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import AddToy from '../Pages/AddToy/AddToy';
 import Blog from '../Pages/Blog/Blog';
+import MyToys from '../Pages/MyToys/MyToys';
 
   const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ import Blog from '../Pages/Blog/Blog';
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/myToys',
+          element:<MyToys></MyToys>
         }
       ]
     },

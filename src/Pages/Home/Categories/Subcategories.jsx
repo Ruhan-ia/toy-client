@@ -16,12 +16,12 @@ const [active, setActive] = useState('sports')
     .then(res => res.json())
     .then(data => setToys(data))
 
-  }, [])
+  }, [active])
 
 
   return (
    <div>
-    <div className=" flex">
+    <div className=" flex text-center gap-5">
       <div onClick={() =>handleTabClick("sports")}
       className={`${active == 'sports'? 'bg-red-500 text-white' : ""}`}
       >
@@ -37,7 +37,9 @@ const [active, setActive] = useState('sports')
       >
         Sports
       </div>
-
+      {
+        toys.map(toy => <ToyCards key={toy._id} toy={toy}></ToyCards>)
+      }
     </div>
    </div>
   );
