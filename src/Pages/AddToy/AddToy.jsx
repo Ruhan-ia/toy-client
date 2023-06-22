@@ -21,7 +21,7 @@ const AddToy = () => {
   const onSubmit = (data) => {
     data.category = selectedOption;
 
-    fetch("https://toy-store-98bee.web.app/toys", {
+    fetch("https://toy-store-server-liart.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

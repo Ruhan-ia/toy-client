@@ -12,7 +12,7 @@ const [active, setActive] = useState('sports')
   }
 
   useEffect(() =>{
-    fetch(`https://toy-store-98bee.web.app/alltoys${active}`)
+    fetch(`https://toy-store-server-liart.vercel.app/alltoys${active}`)
     .then(res => res.json())
     .then(data => setToys(data))
 
